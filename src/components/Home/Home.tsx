@@ -29,7 +29,7 @@ export default function Home({navigation}) {
       <View style={{ alignItems: "center", alignContent: "flex-end", flexDirection: "column-reverse", marginTop: 12 }}>
         <View style={{
           width: '35%',
-          marginTop: 5,
+          marginTop: 45,
           marginLeft: 2,
           marginRight: 2
         }}>

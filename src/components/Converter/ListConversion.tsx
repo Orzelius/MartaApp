@@ -9,7 +9,6 @@ interface props {
 }
 
 const ConvertListElement: React.FC<props> = ({ conversion, pressHandler }) => {
-  console.log(conversion);
   return (
     <TouchableOpacity onPress={() => pressHandler(conversion.key)}>
       <View style={styles.item}>
