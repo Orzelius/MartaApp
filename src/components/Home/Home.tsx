@@ -1,74 +1,52 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, StatusBar, TextInput } from 'react-native';
+import { Button, StyleSheet, TextInput, View, TouchableWithoutFeedback, StatusBar, Keyboard, Text } from 'react-native';
+import Converter from '../Converter/Converter';
 
-enum measurments {
-  Weight = 1,
-  Distance = 2,
-  Volume = 3
-}
-
-const colors = {
-  gray: "#b4b4b4",
-  blue: "#527ffa"
-}
-
-export default function Home() {
-  const [activeMeasurments, setMeasure] = useState({ Weight: true, Distance: false, Volume: false });
-
-  const measurmentClick = (measurment: measurments) => {
-    let newMeasures = { ...activeMeasurments };
-    if (measurment === measurments.Weight) {
-      newMeasures.Weight = !newMeasures.Weight;
-    }
-    if (measurment === measurments.Distance) {
-      newMeasures.Distance = !newMeasures.Distance;
-    }
-    if (measurment === measurments.Volume) {
-      newMeasures.Volume = !newMeasures.Volume;
-    }
-    setMeasure(newMeasures);
+export default function Home({navigation}) {
+  const conversionsButtonPress = () => {
+    navigation.push('ListConvert');
   }
-
+  const converterButtonPress = () => {
+    navigation.push('Converter');
+  }
+  const AboutButtonPress = () => {
+    navigation.push('About');
+  }
   return (
-    <View>
-      <View style={{ flex: 1, justifyContent: "space-around", flexDirection: "row", height: 12 }}>
+    // <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
+    <View style={{ paddingHorizontal: 5 }}>
+      <View style={{ padding: 10, paddingTop: 150 }}>
+        <Text style={{ fontSize: 48, textAlign: "center", fontWeight: "bold", color: "coral" }}>MartaApp</Text>
+      </View>
+      <View style={{ flexDirection: "row", justifyContent: "space-around", paddingTop: "40%" }}>
         <View style={styles.button}>
-          <Button title="Weight" color={activeMeasurments.Weight ? colors.blue : colors.gray} onPress={() => { measurmentClick(measurments.Weight) }} />
+          <Button color="orange" title="CONVERTER" onPress={converterButtonPress} />
         </View>
         <View style={styles.button}>
-          <Button title="Distance" color={activeMeasurments.Distance ? colors.blue : colors.gray} onPress={() => { measurmentClick(measurments.Distance) }} />
-        </View>
-        <View style={styles.button}>
-          <Button title="Volume" color={activeMeasurments.Volume ? colors.blue : colors.gray} onPress={() => { measurmentClick(measurments.Volume) }} />
+          <Button color="coral" title="MY CONVERSIONS" onPress={conversionsButtonPress} />
         </View>
       </View>
-
-      <View style={{marginTop: 120, justifyContent:"center", alignContent:"center", flexDirection:"column", flex:1}}>
-        <TextInput style={styles.input} />
-        <TextInput style={styles.input} />
+      <View style={{ alignItems: "center", alignContent: "flex-end", flexDirection: "column-reverse", marginTop: 12 }}>
+        <View style={{
+          width: '35%',
+          marginTop: 5,
+          marginLeft: 2,
+          marginRight: 2
+        }}>
+          <Button title="about" color="#aaa" onPress={AboutButtonPress} />
+        </View>
       </View>
     </View>
+    // </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   button: {
-    width: '30%',
+    width: '45%',
     height: 40,
     marginTop: 5,
     marginLeft: 2,
     marginRight: 2
-  },
-  input: {
-    width: "90%",
-    borderColor: "#89a5f1",
-    borderWidth: 1,
-    borderRadius: 0.8,
-    height: 40,
-    margin: 4,
   }
 });

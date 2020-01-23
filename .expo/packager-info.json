@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 16160,
-  "expoServerNgrokUrl": "https://v9-wey.anonymous.martaapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.v9-wey.anonymous.martaapp.exp.direct",
-  "ngrokPid": 9028
+  "packagerPort": 19001,
+  "packagerPid": 13516,
+  "expoServerNgrokUrl": "https://gr-j5m.anonymous.martaapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.gr-j5m.anonymous.martaapp.exp.direct",
+  "ngrokPid": 3248
 }

@@ -1,13 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
-import Home from './src/components/Home/Home';
+import { StyleSheet, Text, View, Button, StatusBar, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import Converter from './src/components/Converter/Converter';
+import Navigator from './src/routes/homeStack';
 
 export default function App() {
   return (
-    <View>
-      <StatusBar hidden />
-      <Home/>
-    </View>
+    <Navigator/>
   );
 }
 
